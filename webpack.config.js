@@ -15,7 +15,7 @@ module.exports = {
         index: "./index"
     },
     output: {
-        path: '/var/www/html',
+        path: __dirname + '/build',
         publicPath: '/',
         filename: '[name].js?[hash]'
     },
@@ -41,13 +41,15 @@ module.exports = {
         new webpack.DefinePlugin({
             'NODE_ENV': JSON.stringify(NODE_ENV)
         }),
-        new LiveReloadPlugin({}),
         new CleanWebpackPlugin('build', {root: __dirname}),
         new HtmlWebpackPlugin({template: './template.html'})
     ],
     devtool: '#source-map'
 };
 
+if (process.env.NODE_ENV === 'development') {
+    module.exports.plugins = (module.exports.plugins || []).concat(new LiveReloadPlugin({}));
+}
 if (process.env.NODE_ENV === 'production') {
     module.exports.devtool = false;
     module.exports.plugins = (module.exports.plugins || []).concat([
