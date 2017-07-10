@@ -47,10 +47,10 @@ module.exports = {
     devtool: '#source-map'
 };
 
-if (process.env.NODE_ENV === 'development') {
+if (NODE_ENV === 'development') {
     module.exports.plugins = (module.exports.plugins || []).concat(new LiveReloadPlugin({}));
 }
-if (process.env.NODE_ENV === 'production') {
+if (NODE_ENV === 'production') {
     module.exports.devtool = false;
     module.exports.plugins = (module.exports.plugins || []).concat([
         new webpack.optimize.UglifyJsPlugin({
