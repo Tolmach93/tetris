@@ -1,0 +1,28 @@
+body{
+    margin: 0;
+    background: black;
+}
+#tetris{
+    width: calc(calc(30vw) + calc(30vh));
+    margin: 0 auto;
+    height: calc(calc(30vw) + calc(30vh));
+    overflow: hidden;
+    position: relative;
+    background: white;
+    border: 1px solid white;
+}
+#score{
+    margin: 0 auto;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+}
+.block{
+    width: calc(calc(calc(30vw) + calc(30vh)) / 12);
+    height: calc(calc(calc(30vw) + calc(30vh)) / 12);
+    border: 1px solid white;
+    box-sizing: border-box;
+    position: absolute;
+    transition: 0.2s;
+}
